@@ -22,10 +22,12 @@ pnpm test         # Run Playwright E2E tests (builds first, runs on port 4173)
 Uses **Supabase Auth** with server-side session management via `@supabase/ssr`.
 
 **Supabase Clients:**
+
 - `$lib/supabase/client.ts` - Browser client for client-side operations
 - `$lib/supabase/server.ts` - Server client with cookie-based session handling
 
 **Auth Routes:**
+
 - `/auth/callback` - OAuth callback handler
 - `/auth/logout` - Logout endpoint
 
