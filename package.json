@@ -67,6 +67,8 @@
   },
   "dependencies": {
     "@sentry/sveltekit": "^10.32.1",
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.93.3",
     "axios": "^1.10.0",
     "svelte-french-toast": "^1.2.0",
     "sveltekit-superforms": "^2.29.1",
