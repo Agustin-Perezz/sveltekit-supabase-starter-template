@@ -22,6 +22,12 @@ export default defineConfig({
   webServer: {
     command: 'npm run build && npm run preview',
     port: 4173,
-    reuseExistingServer: !process.env.CI
+    reuseExistingServer: !process.env.CI,
+    env: {
+      PUBLIC_SUPABASE_URL:
+        process.env.PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
+      PUBLIC_SUPABASE_ANON_KEY:
+        process.env.PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key'
+    }
   }
 });
