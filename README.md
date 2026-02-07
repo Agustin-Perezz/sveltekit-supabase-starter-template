@@ -1,6 +1,6 @@
-# Svelte Raw Template
+# SvelteKit Supabase Starter Template
 
-A production-ready SvelteKit starter template built with shift-left quality practices. Catch bugs early, ship with confidence.
+A production-ready SvelteKit starter template with Supabase authentication, built with shift-left quality practices. Catch bugs early, ship with confidence.
 
 ## Philosophy
 
@@ -32,6 +32,11 @@ flowchart LR
 - SvelteKit
 - TypeScript
 - Vite
+
+**Authentication**
+- Supabase Auth
+- Email/Password authentication
+- OAuth providers (Google, Facebook)
 
 **Styling**
 - Tailwind CSS v4
@@ -81,6 +86,43 @@ Preview the production build:
 pnpm preview
 ```
 
+## Authentication
+
+This template includes a complete Supabase authentication system with the following features:
+
+**Authentication Methods**
+- Email/Password authentication with signup and login
+- OAuth providers (Google, Facebook)
+- Automatic email verification via Supabase
+
+**Protected Routes**
+- Routes under `/protected/*` require authentication
+- Automatic redirect to `/login` for unauthenticated users
+- Auth middleware handles session management via server hooks
+
+**Session Management**
+- Server-side session handling using `@supabase/ssr`
+- Cookie-based authentication
+- User and session data available in `event.locals`
+- Client-side Supabase client for real-time subscriptions
+
+**Available Routes**
+- `/login` - Email/password login and OAuth sign-in
+- `/signup` - User registration with email verification
+- `/auth/callback` - OAuth callback handler
+- `/auth/logout` - POST endpoint to sign out
+- `/protected` - Example protected page (requires authentication)
+
+**Setup**
+
+1. Create a Supabase project at [supabase.com](https://supabase.com)
+2. Configure your OAuth providers in the Supabase dashboard (optional)
+3. Add your Supabase URL and anon key to `.env`:
+   ```
+   PUBLIC_SUPABASE_URL=your-supabase-project-url
+   PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   ```
+
 ## Commands
 
 | Command | Description |
@@ -106,10 +148,17 @@ E2E tests collect V8 code coverage using Playwright's built-in coverage API and 
 
 ## Environment Variables
 
-Create a `.env` file with the following variables:
+Create a `.env` file with the following variables (see `.env.dist` for a template):
 
 ```
+# API
 VITE_API_BASE_URL=your-base-api
+
+# Supabase
+PUBLIC_SUPABASE_URL=your-supabase-project-url
+PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+
+# Sentry
 VITE_SENTRY_DSN=your-sentry-dsn
 SENTRY_DSN=your-sentry-dsn
 SENTRY_ORG=your-sentry-org
